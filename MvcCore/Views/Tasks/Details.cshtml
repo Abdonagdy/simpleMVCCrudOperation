@@ -1,0 +1,70 @@
+﻿@using MvcCore.Models
+@model Tasks
+
+<div class="container text-center m-5">
+	<div class="d-flex justify-content-around mb-4 ">
+	<a class="btn btn-info pt-3 pb-3 ps-5 pe-5 m-3" asp-controller="Tasks" asp-action="New">
+		Add Task
+	</a>
+	<a class="btn btn-info pt-3 pb-3 ps-5 pe-5 m-3 m-3" asp-controller="Tasks" asp-action="Index">
+		Back To List
+	</a>
+	</div>
+</div>
+
+	<div class="container  bg-info">
+	<div class="row bg-success p-2 mt-5">
+		<div class="col">
+			Name
+		</div>
+		<div class="col">
+			Description
+		</div>
+		<div class="col">
+			Owner
+		</div>
+		<div class="col">
+			AssignDate
+		</div>
+		<div class="col">
+			Category
+		</div>
+		<div class="col">
+			Status
+		</div>
+		
+	</div>
+</div>
+	
+
+@if (Model!=null)
+{
+					<div class="container  bg-info">
+
+				<div class="row bg-info p-2 mt-5">
+				<div class="col">
+					@Model.Name
+				</div>
+				<div class="col">
+					@Model.Description
+				</div>
+				<div class="col">
+						@Model.own_Id
+				</div>
+				<div class="col">
+					@Model.AssignDate
+				</div>
+				<div class="col">
+				@Model.cat_Id
+				</div>
+				<div class="col">
+				@Model.Status
+				</div>
+				
+			</div>
+				</div>
+}
+	
+
+
+

@@ -1,0 +1,54 @@
+﻿@using MvcCore.Models
+@model Tasks
+@{
+	SelectList cats = new SelectList(ViewBag.Categories,"Id", "category_Name");
+	SelectList users = new SelectList(ViewBag.Users,"Id","Name");
+	SelectList status = new SelectList(Enum.GetValues(typeof(MvcCore.Models.TaskStatus)));
+
+}
+
+<div class="container-fluid w-50">
+	
+	<div class="text-center bg-info">
+<a class="btn btn-primary m-3" asp-controller="Tasks" asp-action="Index">
+		BackToList
+</a>
+</div>
+<div class="container-fluid mt-5 bg-dark p-5 w-50">
+	<form asp-action="Edite" asp-controller="Tasks" asp-antiforgery="true" method="post">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<h3 class="text-center text-white">Edit User</h3>		
+
+		<div  class="mt-2 mb-2">
+			<label asp-for="Name" class="text-white"></label>
+			<input asp-for="Name" class="form-control" value="@Model.Name"/>
+		</div>
+		<div  class="mt-2 mb-2">
+			<label asp-for="Description" class="text-white"></label>
+			<input asp-for="Description" class="form-control" value="@Model.Description" />
+		</div>
+		<div  class="mt-2 mb-2">
+			<label asp-for="AssignDate" class="text-white"></label>
+			<input asp-for="AssignDate" class="form-control" value="@Model.AssignDate" />
+		</div>
+			<div class="text-white mt-2">
+			<label asp-for="own_Id"></label>
+			<select asp-for="own_Id" asp-items="users" class="form-control">
+			</select>
+		</div>
+		<div class="text-white mt-2">
+			<label asp-for="Status"></label>
+			<select asp-for="Status" asp-items="status" class="form-control" >
+			</select>
+		</div>
+	
+		<div class="text-white mt-2">
+			<label asp-for="cat_Id"></label>
+			<select asp-for="cat_Id" asp-items="cats" class="form-control">
+			</select>
+		</div>
+	
+			<input type="submit" class="btn btn-success align-items-md-center  mt-2 pt-2 pb-2 ps-5 pe-5" value="Save" />	
+	</form>
+	</div>
+</div>

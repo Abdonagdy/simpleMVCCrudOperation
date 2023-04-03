@@ -1,0 +1,51 @@
+﻿@using MvcCore.Models
+@model List<Users>
+
+	
+		<div class="container text-center" >
+		<div>     
+			<a class="btn btn-primary m-3" asp-controller="Users" asp-action="New">
+					Add User
+				</a>
+		</div>
+		</div>
+		<div class="container bg-info" >
+		<div class="row  p-5 mt-5">
+			<div class="col">Name</div>
+			<div class="col">Details</div>
+			<div class="col">Edite</div>
+			<div class="col">Delate</div>
+	    </div>
+	</div>
+	<div class="container bg-info">	
+	@if(Model.Any())
+	{
+		@foreach (var item in Model)
+		{
+						
+				<div class="row  mt-5 p-5 ">
+					<div class="col">
+						@item.Name 
+					</div>
+							<div class="col mt-2">
+					<a class="btn btn-outline-secondary" asp-controller="Users" asp-action="Details" asp-route-id="@item.Id">
+						Details
+					</a>
+					</div>
+							<div class="col mt-2">
+					<a class="btn btn-secondary" asp-controller="Users" asp-action="Edite" asp-route-id="@item.Id">
+						Edite
+					</a>
+					</div>
+							<div class="col mt-2">
+					<a class="btn btn-danger" asp-controller="Users" asp-action="Delete" asp-route-id="@item.Id">
+						Delete
+					</a>
+					</div>
+			        </div>
+					}
+		
+	}
+	</div>
+
+

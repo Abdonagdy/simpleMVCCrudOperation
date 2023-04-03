@@ -1,0 +1,23 @@
+﻿@using MvcCore.Models
+@model CategoryTask
+<div class="container-fluid w-50">
+	
+	<div class="text-center bg-info">
+<a class="btn btn-primary m-3" asp-controller="CategoryTask" asp-action="Index">
+		BackToList
+</a>
+</div>
+<div class="container-fluid mt-5 bg-dark p-5 w-50">
+	<form asp-action="Edite" asp-controller="CategoryTask" asp-antiforgery="true" method="post">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<h3 class="text-center text-white">Edit Category</h3>		
+
+		<div  class="mt-2 mb-2">
+			<label asp-for="category_Name" class="text-white"></label>
+			<input asp-for="category_Name" class="form-control" value="@Model.category_Name"/>
+		</div>
+			<input type="submit" class="btn btn-success align-items-md-center  mt-2 pt-2 pb-2 ps-5 pe-5" value="Save" />
+	
+	</form>
+	</div>
+</div>
